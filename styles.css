@@ -1,0 +1,242 @@
+/* global */
+
+:root {
+	--red: #a00000;
+	--dark-red: #6e0000;
+	--light-gray: #f0eef1;
+	--gray: #e7e7e7;
+	--dark-gray: #afafaf;
+	--light-gray: rgb(247, 247, 247);
+	--faint-shadow: 0 5px 5px rgb(207, 207, 207);
+	--content-width: 1200px;
+	--sides-margin: 360px;
+	--button-corners: 10px;
+	--button-padding: 10px;
+	--grayOut: rgba(102, 102, 102, 0.5);
+	--grayOutMore: rgba(24, 24, 24, 0.5);
+	--checkbox-size: 2;
+	--background-fade: background-color 0.2s ease;
+}
+*,
+html {
+	font-size: 18px;
+}
+body {
+	background-color: var(--gray);
+}
+
+.hideElement {
+	display: none;
+}
+
+button {
+	transition: var(--background-fade);
+}
+
+/* top banner */
+
+header {
+	background-color: white;
+	box-shadow: var(--faint-shadow);
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+#headerContent {
+	display: flex;
+	justify-content: space-between;
+	min-width: var(--content-width);
+	padding: 30px 0;
+	margin: 0 var(--sides-margin);
+}
+#titleSection {
+	display: flex;
+	gap: 15px;
+}
+#titleSection img {
+	width: 40px;
+}
+#title {
+	color: var(--red);
+	font-size: 40px;
+	font-weight: bold;
+}
+#headerButtons {
+	display: flex;
+	gap: 15px;
+}
+header button {
+	border: 0px solid;
+	border-radius: var(--button-corners);
+	background-color: var(--gray);
+	padding: var(--button-padding);
+}
+header button:hover {
+	background-color: var(--dark-gray);
+}
+
+/* main content */
+
+#bookList {
+	min-width: var(--content-width);
+	margin: 0 var(--sides-margin);
+	padding: 135px 0 30px 0;
+	display: grid;
+	grid-template-columns: repeat(6, 170px);
+	gap: 35px;
+	justify-content: center;
+}
+
+/* book */
+
+.book {
+	width: 170px;
+	height: 220px;
+	border-radius: 8px;
+	background: var(--light-gray) url(img/default-book-background-fallback.svg) no-repeat center;
+	box-shadow: var(--faint-shadow);
+}
+#addButton {
+	border: 0px solid;
+	background-color: var(--red);
+	color: white;
+	font-size: 50px;
+	margin: 75px 50px;
+	padding: 5px 0;
+	border-radius: 100px;
+	transition: var(--background-fade);
+}
+#addButton:hover,
+#firstAddButton:hover {
+	background-color: var(--dark-red);
+}
+#firstAddButton {
+	border: 0px solid;
+	background-color: var(--red);
+	color: white;
+	font-size: 30px;
+	margin: 75px 50px;
+	min-width: 21ch;
+	padding: 20px 0;
+	border-radius: 100px;
+	text-align: center;
+	grid-column: 3/3;
+	align-self: center;
+	transition: var(--background-fade);
+}
+
+/* book hover */
+
+.grayOut {
+	background-color: var(--grayOutMore);
+	width: 100%;
+	height: 100%;
+	border-radius: var(--button-corners);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	gap: 15px;
+	pointer-events: none;
+	transition: background-color 150ms ease;
+}
+.grayOut > * {
+	margin: 0 15px;
+	margin: 0 auto;
+}
+.grayOut > button {
+	margin: 0 30px;
+	padding: 10px 0;
+	color: inherit;
+	background-color: rgba(0, 0, 0, 0);
+	border: 1px solid white;
+	border-radius: var(--button-corners);
+}
+
+.nameDisplay {
+	word-wrap: break-word;
+	max-width: 14ch;
+	min-height: 50px;
+	overflow: hidden;
+}
+
+/* book edit menu */
+
+#grayVeil {
+	position: fixed;
+	inset: 0;
+	background-color: var(--grayOut);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.5s ease;
+}
+#addMenu {
+	font-size: 30px;
+	display: flex;
+	flex-direction: column;
+	background-color: white;
+	border-radius: 20px;
+	gap: 40px;
+	padding: 50px 50px 40px 50px;
+	transition: transform 200ms ease-in;
+}
+#addMenu button {
+	font-size: 25px;
+	background-color: var(--red);
+	color: white;
+	border: 0px solid;
+	border-radius: var(--button-corners);
+	padding: var(--button-padding);
+}
+#addMenu #deleteButton {
+	background-color: var(--gray);
+	color: black;
+}
+#addMenu button:hover {
+	background-color: var(--dark-red);
+}
+#addMenu #deleteButton:hover {
+	background-color: var(--dark-gray);
+}
+#cancelApply {
+	display: flex;
+	justify-content: end;
+	gap: 20px;
+}
+.block {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+#score {
+	font-size: 30px;
+}
+input[type="text"] {
+	font-size: 30px;
+}
+input[type="checkbox"] {
+	-ms-transform: scale(var(--checkbox-size));
+	-moz-transform: scale(var(--checkbox-size));
+	-webkit-transform: scale(var(--checkbox-size));
+	-o-transform: scale(var(--checkbox-size));
+	transform: scale(var(--checkbox-size));
+}
+#readCheckArea {
+	display: flex;
+	gap: 8px;
+}
+
+input[list] {
+	width: 60px;
+	font-size: 30px;
+}
+#review {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#testing {
+	background-color: red;
+}
